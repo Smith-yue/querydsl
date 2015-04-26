@@ -26,6 +26,8 @@ public abstract class EnumExpression<T extends Enum<T>> extends LiteralExpressio
 
     private static final long serialVersionUID = 8819222316513862829L;
 
+    private transient volatile NumberExpression<Integer> ordinal;
+
     public EnumExpression(Expression<T> mixin) {
         super(mixin);
     }
@@ -44,7 +46,10 @@ public abstract class EnumExpression<T extends Enum<T>> extends LiteralExpressio
      * @return
      */
     public NumberExpression<Integer> ordinal() {
-        return Expressions.numberOperation(Integer.class, Ops.ORDINAL, mixin);
+        if (ordinal == null) {
+            ordinal = Expressions.numberOperation(Integer.class, Ops.ORDINAL, mixin);
+        }
+        return ordinal;
     }
 
 }
