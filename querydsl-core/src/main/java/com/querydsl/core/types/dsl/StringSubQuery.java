@@ -32,7 +32,7 @@ public final class StringSubQuery extends StringExpression implements ExtendedSu
     private final SubQueryExpressionImpl<String> subQueryMixin;
 
     @Nullable
-    private volatile BooleanExpression exists;
+    private transient volatile BooleanExpression exists;
 
     public StringSubQuery(QueryMetadata md) {
         super(new SubQueryExpressionImpl<String>(String.class, md));

@@ -35,7 +35,7 @@ public final class ComparableSubQuery<T extends Comparable<?>> extends Comparabl
     private final SubQueryExpressionImpl<T> subQueryMixin;
 
     @Nullable
-    private volatile BooleanExpression exists;
+    private transient volatile BooleanExpression exists;
 
     public ComparableSubQuery(Class<T> type, QueryMetadata md) {
         super(new SubQueryExpressionImpl<T>(type, md));

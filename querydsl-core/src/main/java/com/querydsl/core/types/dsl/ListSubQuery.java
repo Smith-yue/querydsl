@@ -36,13 +36,13 @@ public final class ListSubQuery<T> extends CollectionExpressionBase<List<T>,T> i
     private final SubQueryExpressionImpl<List<T>> subQueryMixin;
 
     @Nullable
-    private volatile BooleanExpression exists;
+    private transient volatile BooleanExpression exists;
 
     @Nullable
-    private volatile NumberExpression<Long> count;
+    private transient volatile NumberExpression<Long> count;
 
     @Nullable
-    private volatile NumberExpression<Long> countDistinct;
+    private transient volatile NumberExpression<Long> countDistinct;
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public ListSubQuery(Class<T> elementType, QueryMetadata md) {

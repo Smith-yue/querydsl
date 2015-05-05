@@ -34,7 +34,7 @@ public final class TimeSubQuery<T extends Comparable<?>> extends TimeExpression<
     private final SubQueryExpressionImpl<T> subQueryMixin;
 
     @Nullable
-    private volatile BooleanExpression exists;
+    private transient volatile BooleanExpression exists;
 
     public TimeSubQuery(Class<T> type, QueryMetadata md) {
         super(new SubQueryExpressionImpl<T>(type, md));

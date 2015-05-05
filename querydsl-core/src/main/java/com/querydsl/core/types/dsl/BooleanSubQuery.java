@@ -32,7 +32,7 @@ public final class BooleanSubQuery extends BooleanExpression implements Extended
     private final SubQueryExpressionImpl<Boolean> subQueryMixin;
 
     @Nullable
-    private volatile BooleanExpression exists;
+    private transient volatile BooleanExpression exists;
 
     public BooleanSubQuery(QueryMetadata md) {
         super(new SubQueryExpressionImpl<Boolean>(Boolean.class, md));

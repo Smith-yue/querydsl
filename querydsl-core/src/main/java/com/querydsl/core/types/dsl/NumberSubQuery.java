@@ -34,7 +34,7 @@ public final class NumberSubQuery<T extends Number & Comparable<?>> extends Numb
     private final SubQueryExpressionImpl<T> subQueryMixin;
 
     @Nullable
-    private volatile BooleanExpression exists;
+    private transient volatile BooleanExpression exists;
 
     public NumberSubQuery(Class<T> type, QueryMetadata md) {
         super(new SubQueryExpressionImpl<T>(type, md));
